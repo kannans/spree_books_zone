@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731063935) do
+ActiveRecord::Schema.define(version: 20140801094019) do
 
   create_table "spree_addresses", force: true do |t|
     t.string   "firstname"
@@ -135,6 +135,19 @@ ActiveRecord::Schema.define(version: 20140731063935) do
   add_index "spree_credit_cards", ["address_id"], name: "index_spree_credit_cards_on_address_id"
   add_index "spree_credit_cards", ["payment_method_id"], name: "index_spree_credit_cards_on_payment_method_id"
   add_index "spree_credit_cards", ["user_id"], name: "index_spree_credit_cards_on_user_id"
+
+  create_table "spree_feedback_reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "review_id",                 null: false
+    t.integer  "rating",     default: 0
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "locale",     default: "en"
+  end
+
+  add_index "spree_feedback_reviews", ["review_id"], name: "index_spree_feedback_reviews_on_review_id"
+  add_index "spree_feedback_reviews", ["user_id"], name: "index_spree_feedback_reviews_on_user_id"
 
   create_table "spree_gateways", force: true do |t|
     t.string   "type"
@@ -379,7 +392,7 @@ ActiveRecord::Schema.define(version: 20140731063935) do
   add_index "spree_product_properties", ["property_id"], name: "index_spree_product_properties_on_property_id"
 
   create_table "spree_products", force: true do |t|
-    t.string   "name",                 default: "", null: false
+    t.string   "name",                                         default: "",  null: false
     t.text     "description"
     t.datetime "available_on"
     t.datetime "deleted_at"
@@ -390,6 +403,8 @@ ActiveRecord::Schema.define(version: 20140731063935) do
     t.integer  "shipping_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "avg_rating",           precision: 7, scale: 5, default: 0.0, null: false
+    t.integer  "reviews_count",                                default: 0,   null: false
   end
 
   add_index "spree_products", ["available_on"], name: "index_spree_products_on_available_on"
@@ -514,6 +529,21 @@ ActiveRecord::Schema.define(version: 20140731063935) do
   add_index "spree_return_authorizations", ["number"], name: "index_spree_return_authorizations_on_number"
   add_index "spree_return_authorizations", ["order_id"], name: "index_spree_return_authorizations_on_order_id"
   add_index "spree_return_authorizations", ["stock_location_id"], name: "index_spree_return_authorizations_on_stock_location_id"
+
+  create_table "spree_reviews", force: true do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "location"
+    t.integer  "rating"
+    t.text     "title"
+    t.text     "review"
+    t.boolean  "approved",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "ip_address"
+    t.string   "locale",     default: "en"
+  end
 
   create_table "spree_roles", force: true do |t|
     t.string "name"
