@@ -49,3 +49,7 @@ gem 'spree_social', :git => 'https://github.com/spree/spree_social.git', :branch
 
 #Reviews
 gem 'spree_reviews', github: 'spree/spree_reviews', branch: '2-3-stable'
+
+#subscribers
+gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy', branch: 'master'
+
