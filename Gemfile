@@ -53,3 +53,5 @@ gem 'spree_reviews', github: 'spree/spree_reviews', branch: '2-3-stable'
 #subscribers
 gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy', branch: 'master'
 
+# multiple supplier same checkout
+gem 'spree_drop_ship', github: 'jdutil/spree_drop_ship'
