@@ -39,6 +39,17 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 
+#spree default
 gem 'spree', '2.3.1'
 gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :branch => '2-3-stable'
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-3-stable'
+
+#For login
+gem 'spree_social', :git => 'https://github.com/spree/spree_social.git', :branch => '2-3-stable'
+
+#Reviews
+gem 'spree_reviews', github: 'spree/spree_reviews', branch: '2-3-stable'
+
+#subscribers
+gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy', branch: 'master'
+
