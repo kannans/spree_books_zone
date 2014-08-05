@@ -8,6 +8,17 @@ GIT
       spree_core (~> 2.1)
 
 GIT
+  remote: git://github.com/spree/spree-multi-domain.git
+  revision: 13ed1ec2efd3692d20cc898a8606ea6f40d0f4db
+  branch: 2-3-stable
+  specs:
+    spree_multi_domain (1.0.0)
+      spree_api (~> 2.3.0)
+      spree_backend (~> 2.3.0)
+      spree_core (~> 2.3.0)
+      spree_frontend (~> 2.3.0)
+
+GIT
   remote: git://github.com/spree/spree_reviews.git
   revision: 02a8f8808be8d8a5e2b4eec365ca631394a79a8c
   branch: 2-3-stable
@@ -355,6 +366,7 @@ DEPENDENCIES
   spree_auth_devise!
   spree_chimpy!
   spree_gateway!
+  spree_multi_domain!
   spree_reviews!
   spree_social!
   spring
