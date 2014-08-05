@@ -55,3 +55,6 @@ gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy', branch: 'master'
 
 #multi-store-domain
 gem 'spree_multi_domain', git: 'git://github.com/spree/spree-multi-domain.git', :branch => '2-3-stable'
+
+#spree theme
+gem 'spree_fancy', :github => 'spree/spree_fancy', :branch => '2-3-stable'
